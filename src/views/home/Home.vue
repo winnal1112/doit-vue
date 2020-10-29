@@ -1,12 +1,12 @@
 <template>
   <div class="homepage" ref="homepage" style="width: 100%;height: 100%;">
-    <div class="navigation-bar" :style="'width: 200px;height:' + screenHeight + 'px;float: left'">
-      <div style="width: 200px;height: 80px;background-color: #e6e6e6;border-right: 1px solid #e6e6e6;">logo</div>
+    <div class="navigation-bar" :style="'width: 12%;height:' + screenHeight + 'px;float: left'">
+      <div style="width: 100%;height: 80px;background-color: #e6e6e6;border-right: 1px solid #e6e6e6;">logo</div>
       <!-- <el-radio-group v-model="isCollapse">
         <el-radio-button :label="false">展开</el-radio-button>
         <el-radio-button :label="true">收起</el-radio-button>
       </el-radio-group> -->
-      <div :style="'width: 200px;height:' + (screenHeight - 80) + 'px;text-align: left;border-right: 1px solid #e6e6e6;'">
+      <div :style="'width: 100%;height:' + (screenHeight - 80) + 'px;text-align: left;border-right: 1px solid #e6e6e6;'">
         <el-menu default-active="/test" class="el-menu-vertical-demo" :router="true" @open="handleOpen" @close="handleClose" :collapse="isCollapse">
           <el-submenu index="/home">
             <template slot="title">
@@ -41,7 +41,7 @@
         </el-menu>
       </div>
     </div>
-    <div class="container" :style="'height:' + screenHeight + 'px;float: left'">
+    <div class="container" :style="'width: 88%;height:' + screenHeight + 'px;float: left'">
       <router-view></router-view>
     </div>
   </div>
@@ -68,7 +68,7 @@
 
 <style>
   .el-menu-vertical-demo:not(.el-menu--collapse) {
-    width: 200px;
+    width: 100%;
     min-height: 400px;
   }
   .homepage .el-menu {

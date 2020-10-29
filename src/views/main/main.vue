@@ -1,6 +1,6 @@
 <template>
-  <div class="main" :style="'width: 1200px;height: 100%;'">
-    <div class="top-info" ref='top-info' :style="'width: 1200px;background-color: red;height: 50px'">
+  <div class="main" :style="'width: 100%;height: 100%;'">
+    <div class="top-info" ref='top-info' :style="'width: 100%;background-color: #aaaaaa;height: ' + screenHeight + 'px;'">
       111
     </div>
   </div>
@@ -10,14 +10,10 @@
   export default {
     data() {
       return {
-        screenWidth: document.documentElement.clientWidth
+        screenHeight: document.documentElement.clientHeight
       }
     },
     watch: {
-      screenWidth () {
-        this.$refs[top-info].style.width = screenWidth + 'px'
-        console.info(screenWidth)
-      }
     },
     created() {
       console.info(this.$refs)
