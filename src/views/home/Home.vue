@@ -1,6 +1,6 @@
 <template>
-  <div class="homepage" ref="homepage" style="width: 100%;height: 100%;">
-    <div class="navigation-bar" :style="'width: 12%;height:' + screenHeight + 'px;float: left'">
+  <div class="homepage" ref="homepage" style="width: 1900px;height: 969px;">
+    <div class="navigation-bar" :style="'width: 200px;height:' + screenHeight + 'px;float: left'">
       <div style="width: 100%;height: 80px;background-color: #e6e6e6;border-right: 1px solid #e6e6e6;">logo</div>
       <!-- <el-radio-group v-model="isCollapse">
         <el-radio-button :label="false">展开</el-radio-button>
