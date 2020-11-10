@@ -1,6 +1,7 @@
 import Vue from 'vue'
 import Router from 'vue-router'
-import home from '@/views/home/Home.vue'
+// import home from '@/views/home/Home.vue'
+import home from '@/views/component/addDrivingPlan.vue'
 import main from '@/views/main/main.vue'
 
 import test from '@/views/test/test.vue'

@@ -7,8 +7,8 @@
         <el-radio-button :label="true">收起</el-radio-button>
       </el-radio-group> -->
       <div :style="'width: 100%;height:' + (screenHeight - 80) + 'px;text-align: left;border-right: 1px solid #e6e6e6;'">
-        <el-menu default-active="/test" class="el-menu-vertical-demo" :router="true" @open="handleOpen" @close="handleClose" :collapse="isCollapse">
-          <el-submenu index="/home">
+        <el-menu default-active="/home" class="el-menu-vertical-demo" :router="true" @open="handleOpen" @close="handleClose" :collapse="isCollapse">
+          <el-submenu index="/main">
             <template slot="title">
               <i class="el-icon-location"></i>
               <span slot="title">导航一</span>

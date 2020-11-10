@@ -1,13 +1,13 @@
 <template>
   <div style="height: 969px;">
     <div class="left" ref="left" style="background-color: #3ccec9;width: 400px;height: 969px;">
-      啊啊
+      这是表格
     </div>
     <div ref="ctlbtn" id="" class="ctlbtn">
       <p ref="ctlInfo" @click="handleOpenClose">{{btnContext}}</p>
     </div>
     <div class="right" ref="right" style="width: 1520px;height: 969px;background-color: #FFFFFF;">
-      啊啊水水水水申诉申诉
+      这是地图
     </div>
   </div>
 </template>
