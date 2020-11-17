@@ -1,11 +1,11 @@
 import Vue from 'vue'
 import Router from 'vue-router'
 // import home from '@/views/home/Home.vue'
-import home from '@/views/component/addDrivingPlan.vue'
+// import home from '@/views/component/addDrivingPlan.vue'
 import main from '@/views/main/main.vue'
 
-import test from '@/views/test/test.vue'
-import test1 from '@/views/test/test1.vue'
+// import test from '@/views/test/test.vue'
+// import test1 from '@/views/test/test1.vue'
 
 Vue.use(Router)
 
@@ -16,27 +16,19 @@ Router.prototype.push = function push(location) {
 }
 
 export default new Router({
+  // 去除#前缀
+  mode: 'history',
   routes: [
     {
       path: '/',
-      name: 'home',
-      component: home,
+      name: 'main',
+      component: main,
       redirect: '/main',
       children: [
         {
           path: '/main',
           name: 'main',
           component: main,
-        },
-        {
-          path: '/test',
-          name: 'test',
-          component: test,
-        },
-        {
-          path: '/test1',
-          name: 'test1',
-          component: test1,
         }
       ]
     }
