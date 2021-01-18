@@ -1,7 +1,8 @@
 import Vue from 'vue'
 import Router from 'vue-router'
-// import home from '@/views/home/Home.vue'
-// import home from '@/views/component/addDrivingPlan.vue'
+import home from '@/views/home/Home.vue'
+import login from '@/views/login/Login.vue'
+import test from '@/views/test/test.vue'
 import main from '@/views/main/main.vue'
 
 // import test from '@/views/test/test.vue'
@@ -21,16 +22,29 @@ export default new Router({
   routes: [
     {
       path: '/',
-      name: 'main',
-      component: main,
-      redirect: '/main',
+      component: login
+    },
+    {
+      path: '/home',
+      component: home,
       children: [
         {
+          path: '/test',
+          component: test
+        },
+        {
           path: '/main',
-          name: 'main',
-          component: main,
+          component: main
         }
       ]
-    }
+    },
+    {
+      path: '/login',
+      component: login
+    },
+    {
+      path: '/test',
+      component: test
+    },
   ]
 })

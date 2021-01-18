@@ -1,49 +1,48 @@
 <template>
-  <div class="homepage" ref="homepage" style="width: 1900px;height: 969px;">
-    <div class="navigation-bar" :style="'width: 200px;height:' + screenHeight + 'px;float: left'">
-      <div style="width: 100%;height: 80px;background-color: #e6e6e6;border-right: 1px solid #e6e6e6;">logo</div>
-      <!-- <el-radio-group v-model="isCollapse">
-        <el-radio-button :label="false">展开</el-radio-button>
-        <el-radio-button :label="true">收起</el-radio-button>
-      </el-radio-group> -->
-      <div :style="'width: 100%;height:' + (screenHeight - 80) + 'px;text-align: left;border-right: 1px solid #e6e6e6;'">
-        <el-menu default-active="/home" class="el-menu-vertical-demo" :router="true" @open="handleOpen" @close="handleClose" :collapse="isCollapse">
-          <el-submenu index="/main">
-            <template slot="title">
-              <i class="el-icon-location"></i>
-              <span slot="title">导航一</span>
-            </template>
-            <el-menu-item-group>
-              <span slot="title">分组一</span>
-              <el-menu-item index="/test">测试1</el-menu-item>
-              <el-menu-item index="/test1">选项2</el-menu-item>
-            </el-menu-item-group>
-            <el-menu-item-group title="分组2">
-              <el-menu-item index="1-3">选项3</el-menu-item>
-            </el-menu-item-group>
-            <el-submenu index="1-4">
-              <span slot="title">选项4</span>
-              <el-menu-item index="1-4-1">选项1</el-menu-item>
-            </el-submenu>
-          </el-submenu>
-          <el-menu-item index="2">
-            <i class="el-icon-menu"></i>
-            <span slot="title">导航二</span>
-          </el-menu-item>
-          <el-menu-item index="3" disabled>
-            <i class="el-icon-document"></i>
-            <span slot="title">导航三</span>
-          </el-menu-item>
-          <el-menu-item index="4">
-            <i class="el-icon-setting"></i>
-            <span slot="title">导航四</span>
-          </el-menu-item>
-        </el-menu>
-      </div>
-    </div>
-    <div class="container" :style="'width: 88%;height:' + screenHeight + 'px;float: left'">
-      <router-view></router-view>
-    </div>
+  <div class="home-page" ref="homepage">
+    <el-container>
+      <el-header height="60px" style="text-align: center;">
+        <el-container>
+          <el-aside width="260px" style="background-color: #DDDDDD;padding-top: 20px;">Logo</el-aside>
+          <el-main>
+            <el-menu :default-active="$route.path" class="home-menu" :router="router" mode="horizontal" @select="handleSelect">
+              <el-menu-item index="/main">首页</el-menu-item>
+              <el-menu-item index="/test">test页</el-menu-item>
+              <el-submenu index="2">
+                <template slot="title">我的工作台</template>
+                <el-menu-item index="2-1">选项1</el-menu-item>
+                <el-menu-item index="2-2">选项2</el-menu-item>
+                <el-menu-item index="2-3">选项3</el-menu-item>
+                <el-submenu index="2-4">
+                  <template slot="title">选项4</template>
+                  <el-menu-item index="2-4-1">选项1</el-menu-item>
+                  <el-menu-item index="2-4-2">选项2</el-menu-item>
+                  <el-menu-item index="2-4-3">选项3</el-menu-item>
+                </el-submenu>
+              </el-submenu>
+              <el-menu-item index="3">消息中心</el-menu-item>
+              <el-menu-item index="4"><a href="" target="_blank">订单管理</a></el-menu-item>
+            </el-menu>
+          </el-main>
+          <el-aside width="260px" style="background-color: #DDDDDD;padding-top: 1px;">
+            <el-col :span="10">
+              <el-avatar :size="56"></el-avatar>
+            </el-col>
+            <el-col :span="14">
+              <p style="height: 28px;">个人信息</p>
+            </el-col>
+          </el-aside>
+        </el-container>
+      </el-header>
+      <el-container :style="'height: ' + screenHeight + 'px;'">
+        <el-aside width="260px" style="background-color: #aaffff;">Aside</el-aside>
+        <el-main style="background-color: #55ffff">
+          <router-view></router-view>
+        </el-main>
+        <el-aside width="260px" style="background-color: #aaffff;">Aside</el-aside>
+      </el-container>
+      <el-footer height="20px" style="background-color: #DDDDDD;padding-top: 2px;">Published By YangWenhao</el-footer>
+    </el-container>
   </div>
 </template>
 
@@ -51,15 +50,20 @@
   export default {
     data() {
       return {
-        screenHeight: document.documentElement.clientHeight,
-        isCollapse: false
+        router: true,
+        screenHeight: document.documentElement.clientHeight-80,
+      }
+    },
+    watch: {
+    },
+    created() {
+      // 浏览器缩小放大是控制高度
+      window.onresize = () => {
+        this.screenHeight = document.documentElement.clientHeight-80
       }
     },
     methods: {
-      handleOpen(key, keyPath) {
-        console.log(key, keyPath);
-      },
-      handleClose(key, keyPath) {
+      handleSelect(key, keyPath) {
         console.log(key, keyPath);
       }
     }
@@ -67,11 +71,11 @@
 </script>
 
 <style>
-  .el-menu-vertical-demo:not(.el-menu--collapse) {
+  .home-page {
     width: 100%;
-    min-height: 400px;
+    height: 100%;
   }
-  .homepage .el-menu {
-    border-right: 0px;
+  .home-page .el-header, .home-page .el-main {
+    padding: 0px;
   }
 </style>

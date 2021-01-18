@@ -1,8 +1,8 @@
 <template>
   <div class="main" style="width: 100%;height: 100%;">
-    <div class="pageHeader" style="height: 60px;background-color: #FFFFFF;text-align: left;">
-      <div style="width: 220px;height: 60px;text-align: center;float: left;border-bottom: 1px solid #E6E6E6;border-right: 1px solid #E6E6E6;">
-        <img src="../../assets/imgs/logo.png" alt="" style="width: 220px;height: 60px;">
+    main页
+    <!-- <div class="pageHeader" style="height: 60px;background-color: #FFFFFF;text-align: left;">
+      <div style="width: 220px;height: 60px;text-align: center;float: left;border-right: 1px solid #E6E6E6;">
       </div>
       <div style="float: left;">
         <el-menu :default-active="activeIndex" class="el-menu-demo" mode="horizontal" @select="handleSelect" :style="'width: ' + screenWidth + 'px;'">
@@ -41,7 +41,7 @@
     </div>
     <div class="pageFooter" style="height: 40px;background-color: #E6E6E6">
       <p style="margin: 0px;padding-top: 12px;">publish by winnal</p>
-    </div>
+    </div> -->
   </div>
 </template>
 
@@ -76,7 +76,6 @@
     text-align: center;
   }
   .pageMain {
-    background-image: url(../../assets/imgs/background.jpg);
     background-size: 100%;
   }
 </style>

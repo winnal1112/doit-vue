@@ -1,14 +1,28 @@
 <template>
-  <div style="overflow: hidden;">
-    <div class="slider" style="overflow: hidden;">
-      <div ref="context" id="context" class="context">
-        <p>阿萨大大大萨阿萨</p>
-        <p>阿达萨达萨达顶顶</p>
-      </div>
-      <div ref="ctlbtn" id="" class="ctlbtn">
-        <p ref="ctlInfo" @click="handleOpen">{{btnContext}}</p>
-      </div>
-    </div>
+  <div>
+    <el-table
+      :data="tableData"
+      stripe
+      style="width: 100%">
+      <el-table-column
+        type="selection"
+        width="55">
+      </el-table-column>
+      <el-table-column
+        prop="date"
+        label="日期"
+        width="180">
+      </el-table-column>
+      <el-table-column
+        prop="name"
+        label="姓名"
+        width="180">
+      </el-table-column>
+      <el-table-column
+        prop="address"
+        label="地址">
+      </el-table-column>
+    </el-table>
   </div>
 </template>
 
@@ -16,108 +30,36 @@
   export default {
     data() {
       return {
-        isOpen: true,
-        btnContext: '展开'
+        tableData: [{
+          date: '2016-05-02',
+          name: '王小虎',
+          address: '上海市普陀区金沙江路 1518 弄'
+        }, {
+          date: '2016-05-04',
+          name: '王小虎',
+          address: '上海市普陀区金沙江路 1517 弄'
+        }, {
+          date: '2016-05-01',
+          name: '王小虎',
+          address: '上海市普陀区金沙江路 1519 弄'
+        }]
       }
     },
     methods: {
-      handleOpen() {
-        console.info(this.$refs.ctlInfo.innerText)
-        if (this.isOpen) {
-          this.$refs.context.style.left = '200px'
-          this.$refs.ctlbtn.style.left = '400px'
-          this.btnContext = '收起'
-          this.isOpen = false
-        } else {
-          this.$refs.context.style.left = '0px'
-          this.$refs.ctlbtn.style.left = '200px'
-          this.btnContext = '展开'
-          this.isOpen = true
-        }
-      },
-      handleClose(key, keyPath) {
-        console.log(key, keyPath);
-      }
     }
   }
 </script>
 
 <style>
-  .container {
-    position: absolute;
+  /* 调整表格-表头复选框与表格内复选框不对齐 */
+  .el-table th > .cell {
+    padding-left: 14px;
   }
-  .context {
-    position: fixed;
-    top: 50px;
-    left: 0px;
-    width: 200px;
-    height: 700px;
-    background-color: #42B983;
-    transition: all 1s;
+  /* 调整表格鼠标悬停时，当前行的高亮颜色 */
+  .el-table__body tr:hover > td{
+    background-color: #55ff00 !important;
   }
-  .ctlbtn {
-    position: fixed;
-    top: 100px;
-    left: 200px;
-    width: 30px;
-    height: 80px;
-    background-color: #42B983;
-    cursor: pointer;
-    transition: all 1s;
-  }
-  #volet_clos {
-    position: fixed;
-    top: 0px;
-    left: 0;
-    width: 200px;
-  }
-  #volet {
-    width: 250px;
-    padding: 10px;
-    background: #6B9A49;
-    color: #fff;
-    width: 100%;
-    height: 800px;
-  }
-  /* 初始定位 */
-  #volet {
-    position: absolute;
-    left: 0px;
-    top: 50px;
-    transition: all .5s ease-in;
-  }
-  #volet a.out,#volet a.in {
-    position: absolute;
-    right: -88px;
-    top: 150px;
-  }
-  /* 点击过后改变 target  */
-  #volet a.in {
-    display: none;
-  }
-  #volet:target {
-    left: 0px;
-    top: 150px;
-  }
-  #volet:target a.in {
-    display: block;
-  }
-  #volet:target a.out {
-    display: none;
-  }
-  #volet_clos:target #volet {
-    left: 0px;
-    top: 375px;
-  }
-  #volet a.out,#volet a.in{
-    position: absolute;
-    right: calc(40%);
-    top: -40px;
-    padding: 10px 25px;
-    background: #555;
-    color: #fff;
-    text-decoration: none;
-    text-align: center;
-    width: 120px;
+  .el-table__body tr.current-row > td{
+    background-color: #55ff00 !important;
   }
 </style>
