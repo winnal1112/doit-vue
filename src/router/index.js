@@ -1,12 +1,12 @@
 import Vue from 'vue'
 import Router from 'vue-router'
-import home from '@/views/home/Home.vue'
-import login from '@/views/login/Login.vue'
-import test from '@/views/test/test.vue'
-import main from '@/views/main/main.vue'
-
-// import test from '@/views/test/test.vue'
-// import test1 from '@/views/test/test1.vue'
+import Login from '@/views/login/login.vue'
+import Layout from '@/components/layout.vue'
+import Home from '@/views/home/home.vue'
+import Goods from '@/views/goods/goods.vue'
+import Member from '@/views/member/member.vue'
+import Staff from '@/views/staff/staff.vue'
+import Supplier from '@/views/supplier/supplier.vue'
 
 Vue.use(Router)
 
@@ -17,34 +17,68 @@ Router.prototype.push = function push(location) {
 }
 
 export default new Router({
-  // 去除#前缀
-  mode: 'history',
   routes: [
     {
       path: '/',
-      component: login
-    },
-    {
-      path: '/home',
-      component: home,
+      name: 'layout',
+      component: Layout,
+      redirect: '/home',
       children: [
         {
-          path: '/test',
-          component: test
-        },
+          path: '/home',
+          component: Home,
+          meta: {title: '首页'}
+        }
+      ]
+    },
+    {
+      path: '/goods',
+      component: Layout,
+      children: [
         {
-          path: '/main',
-          component: main
+          path: '/',
+          component: Goods,
+          meta: {title: '商品管理'}
+        }
+      ]
+    },
+    {
+      path: '/member',
+      component: Layout,
+      children: [
+        {
+          path: '/',
+          component: Member,
+          meta: {title: '会员管理'}
+        }
+      ]
+    },
+    {
+      path: '/staff',
+      component: Layout,
+      children: [
+        {
+          path: '/',
+          component: Staff,
+          meta: {title: '员工管理'}
+        }
+      ]
+    },
+    {
+      path: '/supplier',
+      component: Layout,
+      children: [
+        {
+          path: '/',
+          component: Supplier,
+          meta: {title: '供应商管理'}
         }
       ]
     },
     {
       path: '/login',
-      component: login
-    },
-    {
-      path: '/test',
-      component: test
-    },
+      name: 'login',
+      component: Login
+    }
   ]
 })
