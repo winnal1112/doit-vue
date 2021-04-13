@@ -10,6 +10,10 @@ import 'element-ui/lib/theme-chalk/index.css'
 Vue.use(ElementUI)
 Vue.use(VueCookies)
 
+// 导入权限拦截
+import './filter/index.js'
+
+
 Vue.config.productionTip = false
 
 /* eslint-disable no-new */

@@ -29,8 +29,9 @@ export default {
         if (valid) {
           // 输入的用户信息不为空时
           if (this.loginForm.userId && this.loginForm.password) {
-            // 保存用户信息到Cookies，有效期30天
-            this.$cookies.set('userInfo', JSON.stringify(this.loginForm), '30d')
+            // 保存用户信息到本地
+            localStorage.setItem('userInfo', JSON.stringify(this.loginForm))
+            // this.$cookies.set('userInfo', JSON.stringify(this.loginForm), '30d')
             // 验证用户信息
             userLogin(this.loginForm).then( res=> {
               if (res) {

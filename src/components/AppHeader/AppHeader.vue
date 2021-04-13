@@ -18,20 +18,21 @@
 
 <script>
   import {userLogout} from '../../api/loginApi.js'
-export default {
-  methods: {
-    async handleCommand(command) {
-      // 退出系统
-      if (command === 'logout') {
-        let message = await userLogout()
-        console.info(message)
-        if (message === '退出成功') {
-          this.$router.push('/login')
+  export default {
+    methods: {
+      async handleCommand(command) {
+        // 退出系统
+        if (command === 'logout') {
+          let message = await userLogout()
+          console.info(message)
+          if (message === '退出成功') {
+            localStorage.removeItem('userInfo')
+            this.$router.push('/login')
+          }
         }
       }
     }
   }
-}
 </script>
 
 <style scoped>
