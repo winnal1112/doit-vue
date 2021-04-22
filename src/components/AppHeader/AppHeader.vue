@@ -2,7 +2,7 @@
   <div class="header">
     <a href="/">
       <img class="logo" src="../../assets/imgs/appLogo.png" width="25px" alt="">
-      <span class="title">个人博客平台</span>
+      <span class="title">会员管理系统</span>
     </a>
     <el-dropdown @command="handleCommand">
       <span class="el-dropdown-link">
@@ -23,12 +23,8 @@
       async handleCommand(command) {
         // 退出系统
         if (command === 'logout') {
-          let message = await userLogout()
-          console.info(message)
-          if (message === '退出成功') {
-            localStorage.removeItem('userInfo')
-            this.$router.push('/login')
-          }
+          localStorage.removeItem('userInfo')
+          this.$router.push('/login')
         }
       }
     }
@@ -40,7 +36,7 @@
   .header {
     position: absolute;
     line-height: 50px;
-    background-color: #aaaa7f;
+    background-color: #a3a3a3;
     top: 0px;
     left: 0px;
     right: 0px;

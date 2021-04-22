@@ -5,7 +5,7 @@ export default {
     return {
       loginForm: {},
       rules: {
-        userId: [{required: true, message: '请输入手机号或邮箱', trigger: 'blur'}],
+        userId: [{required: true, message: '请输入账号', trigger: 'blur'}],
         password: [{required: true, message: '请输入密码', trigger: 'blur'}]
       }
     }
@@ -36,6 +36,8 @@ export default {
             userLogin(this.loginForm).then( res=> {
               if (res) {
                 this.$router.push({name: 'layout'})
+              } else {
+                this.$message.error("用户名或密码错误！")
               }
             })
           } else {
