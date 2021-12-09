@@ -19,3 +19,6 @@ npm run build --report
 ```
 
 For a detailed explanation on how things work, check out the [guide](http://vuejs-templates.github.io/webpack/) and [docs for vue-loader](http://vuejs.github.io/vue-loader).
+
+# src/assets/js/cpmmonConfig.json 内各参数描述 ↓↓↓
+# limit 表格分页查询的最大条数

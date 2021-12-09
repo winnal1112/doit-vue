@@ -1,7 +1,7 @@
 <template>
   <div class="login-page" ref="login-page">
     <div class="login-form">
-      <h2 class="login-title">系统登录</h2><br>
+      <h2 class="login-title">系统注册</h2><br>
       <el-form :model="loginForm" :rules="rules" ref="loginForm" label-width="60px">
         <el-form-item label="账号" prop="userId">
           <el-input v-model="loginForm.userId" placeholder="请输入手机号或邮箱"></el-input>
@@ -10,15 +10,15 @@
           <el-input v-model="loginForm.password" type='password' placeholder="请输入密码"></el-input>
         </el-form-item>
         <el-form-item>
-          <el-button type="primary" @click="login('loginForm')">登录</el-button>
-          <el-button @click="register()">注册</el-button>
+          <el-button type="primary" @click="login('loginForm')">提交注册</el-button>
+          <el-button @click="goLogin()">返回登录</el-button>
         </el-form-item>
       </el-form>
     </div>
   </div>
 </template>
 
-<script src="./login.js"></script>
+<script src="./register.js"></script>
 
 <style scoped>
   .login-page {

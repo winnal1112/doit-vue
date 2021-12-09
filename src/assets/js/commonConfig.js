@@ -1,1 +1,0 @@
-this.$cookies.config('30d')

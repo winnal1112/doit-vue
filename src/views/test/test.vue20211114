@@ -1,0 +1,62 @@
+<template>
+  <div id="app">
+    <video id="video" crossorigin="anonymous" src="https://mytest-yang-1257360142.cos.ap-nanjing.myqcloud.com/mda-mi8396w4mk7zipta.mp4" width="1000" height="500" controls>
+    </video>
+    <button @click="cutPicture">截取</button>
+    <canvas ref="canvas" id="myCanvas" width="1000" height="500"></canvas>
+  </div>
+</template>
+
+<script>
+  export default {
+    data() {
+      return {
+      }
+    },
+    methods: {
+      cutPicture(){
+        let self=this;
+        var v = document.querySelector("video");
+        let canvas = document.getElementById('myCanvas')
+        var ctx = canvas.getContext('2d');
+        let obj = ctx.drawImage(v, 0, 0, 1000, 500);
+        var oGrayImg = canvas.toDataURL();
+        console.info(oGrayImg)
+        //this.imgSrc = oGrayImg
+        // 这里是获取到的图片base64编码,这里只是个例子哈，要自行编码图片替换这里才能测试看到效果
+        const imgUrl = oGrayImg;
+        // 如果浏览器支持msSaveOrOpenBlob方法（也就是使用IE浏览器的时候），那么调用该方法去下载图片
+        if (window.navigator.msSaveOrOpenBlob) {
+            var bstr = atob(imgUrl.split(',')[1]);
+            var n = bstr.length;
+            var u8arr = new Uint8Array(n);
+            while (n--) {
+                u8arr[n] = bstr.charCodeAt(n);
+            }
+            var blob = new Blob([u8arr]);
+            window.navigator.msSaveOrOpenBlob(blob, 'chart-download' + '.' + 'png');
+        } else {
+            // 这里就按照chrome等新版浏览器来处理
+            const a = document.createElement('a');
+            a.href = imgUrl;
+            a.setAttribute('download', 'chart-download');
+            a.click();
+        }
+      },
+    }
+  }
+</script>
+
+<style>
+  /* 调整表格-表头复选框与表格内复选框不对齐 */
+  .el-table th > .cell {
+    padding-left: 14px;
+  }
+  /* 调整表格鼠标悬停时，当前行的高亮颜色 */
+  .el-table__body tr:hover > td{
+    background-color: #55ff00 !important;
+  }
+  .el-table__body tr.current-row > td{
+    background-color: #55ff00 !important;
+  }
+</style>

@@ -1,12 +1,16 @@
 import Vue from 'vue'
 import Router from 'vue-router'
 import Login from '@/views/login/login.vue'
+import Register from '@/views/register/register.vue'
 import Layout from '@/components/layout.vue'
 import Home from '@/views/home/home.vue'
 import Goods from '@/views/goods/goods.vue'
 import Member from '@/views/member/member.vue'
 import Staff from '@/views/staff/staff.vue'
 import Supplier from '@/views/supplier/supplier.vue'
+import ScreenShow from '@/views/screenShow/screenShow.vue'
+import Test from '@/views/test/test.vue'
+import Mydev from '@/views/mydev/mydev.vue'
 
 Vue.use(Router)
 
@@ -17,6 +21,7 @@ Router.prototype.push = function push(location) {
 }
 
 export default new Router({
+  mode: 'history',
   routes: [
     {
       path: '/',
@@ -76,9 +81,47 @@ export default new Router({
       ]
     },
     {
+      path: '/screenShow',
+      component: Layout,
+      children: [
+        {
+          path: '/',
+          component: ScreenShow,
+          meta: {title: '大屏展示'}
+        }
+      ]
+    },
+    {
+      path: '/test',
+      component: Layout,
+      children: [
+        {
+          path: '/',
+          component: Test,
+          meta: {title: '测试页面'}
+        }
+      ]
+    },
+    {
+      path: '/mydev',
+      component: Layout,
+      children: [
+        {
+          path: '/',
+          component: Mydev,
+          meta: {title: '开发页面'}
+        }
+      ]
+    },
+    {
       path: '/login',
       name: 'login',
       component: Login
+    },
+    {
+      path: '/register',
+      name: 'register',
+      component: Register
     }
   ]
 })

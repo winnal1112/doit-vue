@@ -2,7 +2,7 @@
   <div class="navbar">
     <el-menu
       :router="true"
-      default-active="/home"
+      :default-active="defaultActive"
       class="el-menu-vertical-demo"
       @open="handleOpen"
       @close="handleClose"
@@ -17,6 +17,10 @@
         <i class="el-icon-user-solid"></i>
         <span slot="title">会员管理</span>
       </el-menu-item>
+      <el-menu-item index="/mydev/">
+        <i class="el-icon-s-platform"></i>
+        <span slot="title">开发页面</span>
+      </el-menu-item>
       <el-menu-item index="/supplier/">
         <i class="el-icon-s-cooperation"></i>
         <span slot="title">供应商管理</span>
@@ -29,21 +33,40 @@
         <i class="el-icon-user"></i>
         <span slot="title">员工管理</span>
       </el-menu-item>
+      <el-menu-item index="/screenShow/">
+        <i class="el-icon-s-platform"></i>
+        <span slot="title">大屏展示</span>
+      </el-menu-item>
+      <el-menu-item index="/test/">
+        <i class="el-icon-s-platform"></i>
+        <span slot="title">测试页面</span>
+      </el-menu-item>
+      <a href="http://www.baidu.com" target="_blank">
+        <el-menu-item>
+          <i class="el-icon-s-platform"></i>
+          <span slot="title" style="color: #FFFFFF;">百度首页</span>
+        </el-menu-item>
+      </a>
     </el-menu>
   </div>
 </template>
 
 <script>
 export default {
-    methods: {
-      handleOpen(key, keyPath) {
-        console.log(key, keyPath)
-      },
-      handleClose(key, keyPath) {
-        console.log(key, keyPath)
-      }
+  data() {
+    return {
+      defaultActive: this.$route.path,
+    }
+  },
+  methods: {
+    handleOpen(key, keyPath) {
+      console.log(key, keyPath)
+    },
+    handleClose(key, keyPath) {
+      console.log(key, keyPath)
     }
   }
+}
 </script>
 
 <style scoped>
@@ -60,4 +83,5 @@ export default {
   .el-menu {
     border-right: 0px;
   }
+
 </style>

@@ -36,7 +36,6 @@ export default {
             userLogin(this.loginForm).then( res=> {
               if (res) {
                 this.$router.push({name: 'layout'})
-                this.$message.success('登录成功！')
               } else {
                 this.$message.error("用户名或密码错误！")
               }
@@ -50,6 +49,9 @@ export default {
     // 注册
     register() {
       this.$router.push({path: '/register'})
+    },
+    goLogin() {
+      this.$router.push({path: '/login'})
     }
   },
   beforeDestroy () {

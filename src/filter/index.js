@@ -6,7 +6,7 @@ router.beforeEach((to, from, next) => {
   if (userInfo) {
     next()
   } else {
-    if (to.path === '/login') {
+    if (to.path === '/login' || to.path === '/register') {
       next()
     } else {
       next({path: '/login'})

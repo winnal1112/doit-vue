@@ -36,7 +36,7 @@
   .header {
     position: absolute;
     line-height: 50px;
-    background-color: #a3a3a3;
+    background-color: #000000;
     top: 0px;
     left: 0px;
     right: 0px;
